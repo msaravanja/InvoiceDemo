@@ -1,0 +1,63 @@
+﻿@model InvoiceAppDemo.ViewModels.Invoice.InvoiceForDetailedViewModel
+
+@{
+    ViewBag.Title = "Izbrisi";
+}
+
+<h2>Izbriši fakturu #@Model.InvoiceNumber</h2>
+
+<h3>Da li ste sigurni da želite izbrisati fakturu?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoicePaymentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoicePaymentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceReceiver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceReceiver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedByUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedByUser)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            @Html.ActionLink("Nazad na fakture", "Index")
+        </div>
+    }
+</div>
